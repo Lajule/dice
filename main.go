@@ -27,12 +27,10 @@ func main() {
 
 	r, _ := regexp.Compile("^([0-9]+)d([0-9]+)([+-][0-9]+)?$")
 
-	scanner := bufio.NewScanner(strings.NewReader("3d32\n3d32+3\n3d\n5d6+3\n10d3-3"))
+	scanner := bufio.NewScanner(os.Stdin)
 
 	for scanner.Scan() {
 		text := scanner.Text()
-
-		fmt.Printf("%s\n", text)
 
 		if r.MatchString(text) {
 			groups := r.FindStringSubmatch(text)
@@ -47,18 +45,15 @@ func main() {
 				draws = append(draws, r)
 			}
 
-			fmt.Printf("%v\n", draws)
-
 			sum := 0
 
 			for _, draw := range draws {
 				sum += draw
 			}
 
-			fmt.Printf("%d\n", sum)
+			additional, _ := strconv.Atoi(groups[3])
 
-			a, _ := strconv.Atoi(groups[3])
-			fmt.Printf("%d\n", sum+a)
+			fmt.Printf("%s:(%s)%s=%d\n", text, strings.Join(strings.Split(strings.Trim(fmt.Sprint(draws), "[]"), " "), "+"), groups[3], sum+additional)
 
 		}
 	}
