@@ -53,7 +53,7 @@ func main() {
 
 			additional, _ := strconv.Atoi(groups[3])
 
-			fmt.Printf("%s:(%s)%s=%d\n", text, strings.Join(strings.Split(strings.Trim(fmt.Sprint(draws), "[]"), " "), "+"), groups[3], sum+additional)
+			fmt.Printf("%s:(%s)%s=%d\n", text, strings.Join(strings.Split(strings.Trim(fmt.Sprint(draws), "[]"), " "), "+"), groups[3], sum + additional)
 
 		}
 	}
