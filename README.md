@@ -1,7 +1,22 @@
 # dice
 Roll a dice in command line
 
-## Example
+## Installation
+
+```sh
+go get github.com/Lajule/dice
+```
+
+## Usage
+
+Type the following command `dice -h` to display this help message:
+
+```
+qsfc [flags] file
+  -d	Displays draw details
+```
+
+## Examples
 
 Consider following input file `draws`:
 
