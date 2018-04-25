@@ -29,7 +29,7 @@ Consider following input file `draws`:
 
 
 ```sh
-dice draws
+dice -d draws
 3d6:(2+4+5)=11
 6d3+10:(1+1+3+2+2+1)+10=20
 ```
@@ -41,14 +41,14 @@ dice <<EOF
 3d6
 6d3+10
 EOF
-3d6:(2+4+5)=11
-6d3+10:(1+1+3+2+2+1)+10=20
+3d6:11
+6d3+10:20
 ```
 
 or piping command result :
 
 ```sh
 echo '3d6\n6d3+10' | dice
-3d6:(2+4+5)=11
-6d3+10:(1+1+3+2+2+1)+10=20
+3d6:11
+6d3+10:20
 ```
