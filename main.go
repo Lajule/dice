@@ -13,6 +13,27 @@ import (
 	"time"
 )
 
+func roll(groups []string) (draws []int, result int) {
+  n, _ := strconv.Atoi(groups[1])
+	d, _ := strconv.Atoi(groups[2])
+  a, _ := strconv.Atoi(groups[3])
+
+  for i := 0; i < n; i++ {
+    r := rand.Intn(d)
+    draws = append(draws, r)
+  }
+
+  sum := 0
+
+  for _, draw := range draws {
+    sum += draw
+  }
+
+  result = sum + a
+
+  return
+}
+
 func init() {
 	flag.Usage = func() {
 		fmt.Printf("Usage: %s [flags] file\n", os.Args[0])
@@ -33,28 +54,11 @@ func main() {
 		text := scanner.Text()
 
 		if r.MatchString(text) {
-			groups := r.FindStringSubmatch(text)
+		  groups := r.FindStringSubmatch(text)
+		  draws, result := roll(groups)
 
-			n, _ := strconv.Atoi(groups[1])
-			d, _ := strconv.Atoi(groups[2])
-
-			var draws []int
-
-			for i := 0; i < n; i++ {
-				r := rand.Intn(d)
-				draws = append(draws, r)
-			}
-
-			sum := 0
-
-			for _, draw := range draws {
-				sum += draw
-			}
-
-			additional, _ := strconv.Atoi(groups[3])
-
-			fmt.Printf("%s:(%s)%s=%d\n", text, strings.Join(strings.Split(strings.Trim(fmt.Sprint(draws), "[]"), " "), "+"), groups[3], sum + additional)
-
+      add := strings.Join(strings.Split(strings.Trim(fmt.Sprint(draws), "[]"), " "), "+")
+			fmt.Printf("%s:(%s)%s=%d\n", groups[0], add, groups[3], result)
 		}
 	}
 
