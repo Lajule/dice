@@ -15,7 +15,7 @@ import (
 
 func open() (input *os.File) {
 	if flag.NArg() > 0 {
-		file, err := os.Open("")
+		file, err := os.Open(flag.Arg(0))
 
 		if err != nil {
 			log.Fatal(err)
@@ -66,15 +66,15 @@ func main() {
 		text := scanner.Text()
 
 		if r.MatchString(text) {
-			groups := r.FindStringSubmatch(text)
-			n, _ := strconv.Atoi(groups[1])
-			d, _ := strconv.Atoi(groups[2])
-			a, _ := strconv.Atoi(groups[3])
+			matches := r.FindStringSubmatch(text)
+			n, _ := strconv.Atoi(matches[1])
+			d, _ := strconv.Atoi(matches[2])
+			a, _ := strconv.Atoi(matches[3])
 
 			draws, result := roll(n, d, a)
 
 			add := strings.Join(strings.Split(strings.Trim(fmt.Sprint(draws), "[]"), " "), "+")
-			fmt.Printf("%s:(%s)%s=%d\n", groups[0], add, groups[3], result)
+			fmt.Printf("%s:(%s)%s=%d\n", matches[0], add, matches[3], result)
 		}
 	}
 
