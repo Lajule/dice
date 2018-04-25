@@ -1,11 +1,13 @@
 # dice
 Roll a dice in command line
 
-```sh
-cat draws
+Consider following input file :
+
+```
 3d6
 6d3+10
 ```
+
 
 ```sh
 dice draws
