@@ -14,24 +14,24 @@ import (
 )
 
 func roll(groups []string) (draws []int, result int) {
-  n, _ := strconv.Atoi(groups[1])
+	n, _ := strconv.Atoi(groups[1])
 	d, _ := strconv.Atoi(groups[2])
-  a, _ := strconv.Atoi(groups[3])
+	a, _ := strconv.Atoi(groups[3])
 
-  for i := 0; i < n; i++ {
-    r := rand.Intn(d)
-    draws = append(draws, r)
-  }
+	for i := 0; i < n; i++ {
+		r := rand.Intn(d)
+		draws = append(draws, r)
+	}
 
-  sum := 0
+	sum := 0
 
-  for _, draw := range draws {
-    sum += draw
-  }
+	for _, draw := range draws {
+		sum += draw
+	}
 
-  result = sum + a
+	result = sum + a
 
-  return
+	return
 }
 
 func init() {
@@ -54,10 +54,10 @@ func main() {
 		text := scanner.Text()
 
 		if r.MatchString(text) {
-		  groups := r.FindStringSubmatch(text)
-		  draws, result := roll(groups)
+			groups := r.FindStringSubmatch(text)
+			draws, result := roll(groups)
 
-      add := strings.Join(strings.Split(strings.Trim(fmt.Sprint(draws), "[]"), " "), "+")
+			add := strings.Join(strings.Split(strings.Trim(fmt.Sprint(draws), "[]"), " "), "+")
 			fmt.Printf("%s:(%s)%s=%d\n", groups[0], add, groups[3], result)
 		}
 	}
