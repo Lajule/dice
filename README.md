@@ -1,7 +1,7 @@
 # dice
 Roll a dice in command line
 
-## Usage
+## Example
 
 Consider following input file `draws`:
 
@@ -30,6 +30,7 @@ EOF
 6d3+10:(1+1+3+2+2+1)+10=20
 ```
 
+or piping command result :
 
 ```sh
 echo '3d6\n6d3+10' | dice
