@@ -13,6 +13,22 @@ import (
 	"time"
 )
 
+func open() (input *os.File) {
+	if flag.NArg() > 0 {
+		file, err := os.Open("")
+
+		if err != nil {
+			log.Fatal(err)
+		}
+
+		input = file
+	} else {
+		input = os.Stdin
+	}
+
+	return
+}
+
 func roll(n, d, a int) (draws []int, result int) {
 	for i := 0; i < n; i++ {
 		r := rand.Intn(d)
@@ -44,7 +60,7 @@ func main() {
 
 	r, _ := regexp.Compile("^([0-9]+)d([0-9]+)([+-][0-9]+)?$")
 
-	scanner := bufio.NewScanner(os.Stdin)
+	scanner := bufio.NewScanner(open())
 
 	for scanner.Scan() {
 		text := scanner.Text()
