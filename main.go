@@ -13,11 +13,7 @@ import (
 	"time"
 )
 
-func roll(groups []string) (draws []int, result int) {
-	n, _ := strconv.Atoi(groups[1])
-	d, _ := strconv.Atoi(groups[2])
-	a, _ := strconv.Atoi(groups[3])
-
+func roll(n, d, a int) (draws []int, result int) {
 	for i := 0; i < n; i++ {
 		r := rand.Intn(d)
 		draws = append(draws, r)
@@ -55,7 +51,11 @@ func main() {
 
 		if r.MatchString(text) {
 			groups := r.FindStringSubmatch(text)
-			draws, result := roll(groups)
+			n, _ := strconv.Atoi(groups[1])
+			d, _ := strconv.Atoi(groups[2])
+			a, _ := strconv.Atoi(groups[3])
+
+			draws, result := roll(n, d, a)
 
 			add := strings.Join(strings.Split(strings.Trim(fmt.Sprint(draws), "[]"), " "), "+")
 			fmt.Printf("%s:(%s)%s=%d\n", groups[0], add, groups[3], result)
