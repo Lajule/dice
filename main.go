@@ -46,10 +46,10 @@ func roll(n, d, a int) (draws []int, result int) {
 	return
 }
 
-var shortFlag bool
+var detailsFlag bool
 
 func init() {
-	flag.BoolVar(&shortFlag, "s", false, "Don't display draw details")
+	flag.BoolVar(&detailsFlag, "d", false, "Don't display draw details")
 	flag.Usage = func() {
 		fmt.Printf("Usage: %s [flags] file\n", os.Args[0])
 		flag.PrintDefaults()
@@ -76,11 +76,11 @@ func main() {
 
 			draws, result := roll(n, d, a)
 
-			if shortFlag {
-				fmt.Printf("%s:%d\n", matches[0], result)
-			} else {
+			if detailsFlag {
 				add := strings.Join(strings.Split(strings.Trim(fmt.Sprint(draws), "[]"), " "), "+")
 				fmt.Printf("%s:(%s)%s=%d\n", matches[0], add, matches[3], result)
+			} else {
+				fmt.Printf("%s:%d\n", matches[0], result)
 			}
 		}
 	}
