@@ -1,12 +1,16 @@
 # dice
 Roll a dice in command line
 
-Consider following input file :
+## Usage
+
+Consider following input file `draws`:
 
 ```
 3d6
 6d3+10
 ```
+
+`dice` binary should be used like this:
 
 
 ```sh
@@ -14,6 +18,8 @@ dice draws
 3d6:(2+4+5)=11
 6d3+10:(1+1+3+2+2+1)+10=20
 ```
+
+or using _Here Documents_ syntax :
 
 ```sh
 dice <<EOF
