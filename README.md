@@ -1,4 +1,5 @@
 # dice
+
 Roll a dice in command line
 
 ## Installation
@@ -15,6 +16,10 @@ Type the following command `dice -h` to display this help message:
 qsfc [flags] file
   -d	Displays draw details
 ```
+
+## Syntax
+
+(n)d(d)([+-](a))?
 
 ## Examples
 
