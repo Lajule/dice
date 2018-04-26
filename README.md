@@ -14,12 +14,15 @@ Type the following command `dice -h` to display this help message:
 
 ```
 qsfc [flags] file
-  -d	Displays draw details
+  -d	Displays draws details
 ```
 
 ## Syntax
 
-
+`dice` use the following syntax:
+* `<draws>`**d**`<faces>`
+* `<draws>`**d**`<faces>`**+**`<modifier>`
+* `<draws>`**d**`<faces>`**-**`<modifier>`
 
 ## Examples
 
