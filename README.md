@@ -19,7 +19,7 @@ qsfc [flags] file
 
 ## Syntax
 
-(n)d(d)([+-](a))?
+
 
 ## Examples
 
