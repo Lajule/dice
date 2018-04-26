@@ -49,7 +49,7 @@ func roll(n, d, m int) (draws []int, result int) {
 var detailsFlag bool
 
 func init() {
-	flag.BoolVar(&detailsFlag, "d", false, "Display draw details")
+	flag.BoolVar(&detailsFlag, "d", false, "Display draws details")
 	flag.Usage = func() {
 		fmt.Printf("Usage: %s [flags] file\n", os.Args[0])
 		flag.PrintDefaults()
