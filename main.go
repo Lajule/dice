@@ -29,7 +29,7 @@ func open() (input *os.File) {
 	return
 }
 
-func roll(n, d, a int) (draws []int, result int) {
+func roll(n, d, m int) (draws []int, result int) {
 	for i := 0; i < n; i++ {
 		r := rand.Intn(d)
 		draws = append(draws, r)
@@ -41,7 +41,7 @@ func roll(n, d, a int) (draws []int, result int) {
 		sum += draw
 	}
 
-	result = sum + a
+	result = sum + m
 
 	return
 }
@@ -72,9 +72,9 @@ func main() {
 			matches := r.FindStringSubmatch(text)
 			n, _ := strconv.Atoi(matches[1])
 			d, _ := strconv.Atoi(matches[2])
-			a, _ := strconv.Atoi(matches[3])
+			m, _ := strconv.Atoi(matches[3])
 
-			draws, result := roll(n, d, a)
+			draws, result := roll(n, d, m)
 
 			if detailsFlag {
 				add := strings.Join(strings.Split(strings.Trim(fmt.Sprint(draws), "[]"), " "), "+")
