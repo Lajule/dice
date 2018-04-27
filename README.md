@@ -46,8 +46,8 @@ or using _Here Documents_ syntax :
 
 ```sh
 dice <<EOF
-3d6
-6d3+10
+> 3d6
+> 6d3+10
 EOF
 3d6:11
 6d3+10:20
