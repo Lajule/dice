@@ -80,7 +80,7 @@ func main() {
 				add := strings.Join(strings.Split(strings.Trim(fmt.Sprint(draws), "[]"), " "), "+")
 				fmt.Printf("%s:(%s)%s=%d\n", matches[0], add, matches[3], result)
 			} else {
-				fmt.Printf("%s:%d\n", matches[0], result)
+				fmt.Printf("%s=%d\n", matches[0], result)
 			}
 		}
 	}
