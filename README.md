@@ -56,7 +56,10 @@ EOF
 or piping command result :
 
 ```sh
-echo '3d6\n6d3+10' | dice
+{
+> echo 3d6
+> echo 6d3+10
+} | dice
 3d6=11
 6d3+10=20
 ```
