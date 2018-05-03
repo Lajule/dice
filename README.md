@@ -13,7 +13,7 @@ go get github.com/Lajule/dice
 Type the following command `dice -h` to display this help message:
 
 ```
-qsfc [flags] file
+dice [flags] file
   -d	Displays draws details
 ```
 
