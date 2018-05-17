@@ -8,15 +8,6 @@ Roll a dice from command line
 go get github.com/Lajule/dice
 ```
 
-## Usage
-
-Type the following command `dice -h` to display this help message:
-
-```
-dice [flags] file
-  -d	Displays draws details
-```
-
 ## Syntax
 
 `dice` use the following syntax:
@@ -37,9 +28,9 @@ Consider following input file `draws`:
 
 
 ```sh
-dice -d draws
-3d6:(2+4+5)=11
-6d3+10:(1+1+3+2+2+1)+10=20
+dice draws
+11
+20
 ```
 
 or using _Here Documents_ syntax :
@@ -49,17 +40,17 @@ dice <<EOF
 > 3d6
 > 6d3+10
 EOF
-3d6=11
-6d3+10=20
+11
+20
 ```
 
-or piping command result :
+or even piping command result :
 
 ```sh
 {
 > echo 3d6
 > echo 6d3+10
 } | dice
-3d6=11
-6d3+10=20
+11
+20
 ```
