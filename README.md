@@ -10,7 +10,7 @@ go get github.com/Lajule/dice
 
 ## Syntax
 
-`dice` use the following syntax:
+`dice` uses the following syntax:
 * `<draws>`**d**`<faces>`
 * `<draws>`**d**`<faces>`**+**`<modifier>`
 * `<draws>`**d**`<faces>`**-**`<modifier>`
