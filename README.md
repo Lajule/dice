@@ -1,6 +1,6 @@
 # dice
 
-Roll a dice from command line.
+Roll a dice from the command line.
 
 ## Installation
 
